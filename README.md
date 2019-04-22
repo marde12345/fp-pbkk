@@ -10,3 +10,8 @@ Aplikasi ini bertujuan memberikan layanan kepada masyarakat untuk konsultasi ter
 1. Registrasi akun untuk Dokter dan Pasien
 2. Form konsultasi
 3. List dokter yang terdaftar
+### Mockup Prototype
+#### Login Page
+![alt text](https://raw.githubusercontent.com/marde12345/fp-pbkk/master/img/sslogin.png)
+#### Dashboard Admin/Dokter
+![alt text](https://raw.githubusercontent.com/marde12345/fp-pbkk/master/img/ssindex.png)
