@@ -10,4 +10,9 @@ public class HomeController {
 	public String showHome() {
 		return "home";
 	}
+	
+	@GetMapping("/coba")
+	public String showCoba() {
+		return "coba";
+	}
 }

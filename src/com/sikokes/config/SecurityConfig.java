@@ -1,5 +1,6 @@
 package com.sikokes.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,7 +12,10 @@ import org.springframework.security.core.userdetails.User.UserBuilder;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
+	
+	@Autowired
+	private CustomSuccessAuthHandler successHandler ;
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		UserBuilder users = User.withDefaultPasswordEncoder();
@@ -28,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/doktor/**").hasRole("DOKTOR")
 			.antMatchers("/pasien/**").hasRole("PASIEN")
 			.and()
-			.formLogin().loginPage("/showLogin").loginProcessingUrl("/authenticateUser").permitAll()
+			.formLogin().successHandler(successHandler).loginPage("/showLogin").loginProcessingUrl("/authenticateUser").permitAll()
 			.and()
 			.logout().permitAll()
 			.and()

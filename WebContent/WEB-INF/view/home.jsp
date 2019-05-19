@@ -21,5 +21,6 @@
 
 	<a href="${pageContext.request.contextPath }/doktor">Doktor</a>
 	<a href="${pageContext.request.contextPath }/pasien">Pasien</a>
+	<a href="${pageContext.request.contextPath }/coba">Coba</a>
 </body>
 </html>
