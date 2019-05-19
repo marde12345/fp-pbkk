@@ -1,64 +1,78 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
- 
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<c:set var="contextPathBootstrap" value="${contextPath}/resources/admin"/>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
+<c:set var="res" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Login</title>
-<!-- Custom fonts for this template-->
-<link href="${contextPathBootstrap}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
-<!-- Custom styles for this template-->
-<link href="${contextPathBootstrap}/css/sb-admin.css" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIKoKes - Login</title>
+<link href='<spring:url value="/resources/css/bootstrap.min.css"/>'
+	rel="stylesheet">
+<link href='<spring:url value="/resources/css/styles.css"/>'
+	rel="stylesheet">
 <style type="text/css">
-body { 
-  /* Full height */
-  height: 100%; 
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+body {
+	/* Full height */
+	height: 100%;
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: ("<spring:url value="/resources/img/landingpagelogin.jpg
+		"/>");
 }
 </style>
 </head>
-<body background="${contextPath }/resources/img/landingpagelogin.jpg">
-  <div class="container fadeInDown">
-    <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Login</div>
-      <div class="card-body">
-        <form>
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
-              <label for="inputEmail">Email</label>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
-              <label for="inputPassword">Password</label>
-            </div>
-          </div>
-          
-          <a class="btn btn-primary btn-block" href="index.html">Login</a>
-        </form>
-        <div class="text-center">
-          <a class="d-block small mt-3" href="register.html">Daftar</a>
-        </div>
-      </div>
-    </div>
-  </div>
+<body>
+	<div class="row">
+		<c:if test="${param.error != null}">
+			<div class="alert alert-danger col-xs-offset-1 col-xs-10">
+				Username atau password salah</div>
+		</c:if>
+		<c:if test="${param.logout != null}">
+			<div class="alert alert-success col-xs-offset-1 col-xs-10">You
+				have been logged out.</div>
+		</c:if>
+		<div
+			class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+			<div class="login-panel panel panel-default">
+				<div class="panel-heading">Log in</div>
+				<div class="panel-body">
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="${contextPath }/vendor/jquery/jquery.min.js"></script>
-  <script src="${contextPath }/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+					<form:form role="form"
+						action="${pageContext.request.contextPath}/authenticateUser"
+						method="POST">
+						<fieldset>
+							<div class="form-group">
+								<input class="form-control" placeholder="Username"
+									name="username" type="username" autofocus="">
+							</div>
+							<div class="form-group">
+								<input class="form-control" placeholder="Password"
+									name="password" type="password" value="">
+							</div>
+							<div class="form-group">
+								<div class="col-sm-6 controls">
+									<button class="btn btn-success">Login</button>
+								</div>
+							</div>
+						</fieldset>
+					</form:form>
+				</div>
+			</div>
+		</div>
+		<!-- /.col-->
+	</div>
+	<!-- /.row -->
 
-  <!-- Core plugin JavaScript-->
-  <script src="${contextPath }/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<script src='<spring:url value="/resources/js/jquery-1.11.1.min.js"/>'></script>
+	<script src='<spring:url value="/resources/js/bootstrap.min.js"/>'></script>
 </body>
 </html>
