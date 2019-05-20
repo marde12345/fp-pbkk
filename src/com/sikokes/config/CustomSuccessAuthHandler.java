@@ -57,7 +57,6 @@ public class CustomSuccessAuthHandler implements AuthenticationSuccessHandler {
         for (GrantedAuthority grantedAuthority : authorities) {
             if (grantedAuthority.getAuthority().equals("ROLE_DOKTOR")) {
                 isDoktor = true;
-                System.out.println("test");
                 break;
             } else if (grantedAuthority.getAuthority().equals("ROLE_PASIEN")) {
                 isPasien = true;
