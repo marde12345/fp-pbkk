@@ -1,5 +1,7 @@
 package com.sikokes.config;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -16,14 +18,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private CustomSuccessAuthHandler successHandler ;
 	
+	@Autowired
+	private DataSource dataSource;
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		UserBuilder users = User.withDefaultPasswordEncoder();
-
-		auth.inMemoryAuthentication().withUser(users.username("Fasma").password("123").roles("DOKTOR"))
-				.withUser(users.username("Nada").password("123").roles("DOKTOR"))
-				.withUser(users.username("Rasyid").password("123").roles("PASIEN"));
-
+		
+		auth.jdbcAuthentication().dataSource(dataSource)
+		.usersByUsernameQuery("select username,password,enabled from user where username=?")
+		.authoritiesByUsernameQuery("select username,role from role where username=?");
 	}
 
 	@Override

@@ -22,7 +22,7 @@
 	<mvc:annotation-driven />
 
 	<!-- Mapping Resource, lokasi buat sewaktu-waktu ganti tema -->
-	<mvc:resources location="/resources/"
+	<mvc:resources location="/WEB-INF/resources/"
 		mapping="/resources/**"></mvc:resources>
 
 	<!-- Step 5: Define Spring MVC view resolver -->
