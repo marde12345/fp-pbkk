@@ -28,6 +28,15 @@ public class User {
 	@Column(name="foto")
 	private String foto;
 	
+	@Column(name="alamat")
+	private String alamat;
+
+	@Column(name="telp")
+	private String telp;
+	
+	@Column(name="email")
+	private String email;
+	
 	public String getUsername() {
 		return username;
 	}
@@ -52,14 +61,6 @@ public class User {
 		this.enabled = enabled;
 	}
 	
-	public String getNamaLengkap() {
-		return nama_lengkap;
-	}
-
-	public void setNamaLengkap(String nama_lengkap) {
-		this.nama_lengkap = nama_lengkap;
-	}
-	
 	public String getFoto() {
 		return foto;
 	}
@@ -68,18 +69,53 @@ public class User {
 		this.foto = foto;
 	}
 	
+	public String getNama_lengkap() {
+		return nama_lengkap;
+	}
+
+	public void setNama_lengkap(String nama_lengkap) {
+		this.nama_lengkap = nama_lengkap;
+	}
+
+	public String getAlamat() {
+		return alamat;
+	}
+
+	public void setAlamat(String alamat) {
+		this.alamat = alamat;
+	}
+
+	public String getTelp() {
+		return telp;
+	}
+
+	public void setTelp(String telp) {
+		this.telp = telp;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(String username, String password, int enabled, String nama_lengkap, String foto) {
+	public User(String username, String password, int enabled, String nama_lengkap, String foto, String alamat,
+			String telp, String email) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.enabled = enabled;
 		this.nama_lengkap = nama_lengkap;
 		this.foto = foto;
+		this.alamat = alamat;
+		this.telp = telp;
+		this.email = email;
 	}
-	
 
 }
