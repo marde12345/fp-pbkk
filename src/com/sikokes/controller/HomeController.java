@@ -3,6 +3,8 @@ package com.sikokes.controller;
 import java.security.Principal;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.jasper.tagplugins.jstl.core.Out;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,12 +44,15 @@ public class HomeController {
 	private AnswerService answerService;
 	
 	@GetMapping("/")
-	public ModelAndView showHome(Principal principal, Model model) {
+	public ModelAndView showHome(Principal principal, Model model, HttpSession httpSession) {
 		if(principal==null) return new ModelAndView("login");
 		
 		ModelAndView mav = new ModelAndView("home");
 		
 		User user = userService.getUserByUsername(principal.getName());
+		
+		httpSession.setAttribute("user", user);
+		
 		List<Question> questions = questionService.getQuestions();
 		
 		System.out.println(questions);
@@ -58,17 +63,5 @@ public class HomeController {
 		return mav;
 	}
 	
-	@RequestMapping(value="jawaban",method=RequestMethod.GET)
-	public ModelAndView showJawaban(@RequestParam("id") int id,Model model, Principal principal) {
-		ModelAndView mav = new ModelAndView("jawaban");
-		
-//		Post post = new Post(answerService.getAnswerByid(id),questionService.getQuestionById(id));
-//		mav.addObject("post",post);
-		
-//		mav.addObject("question", questionService.getQuestionById(id));
-		model.addAttribute(userService.getUserByUsername(principal.getName()));
-		mav.addObject("jawaban",answerService.getAnswerByid(id));
-//		
-		return mav;
-	}
+	
 }

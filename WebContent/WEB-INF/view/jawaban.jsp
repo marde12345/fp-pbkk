@@ -90,8 +90,9 @@
 						</div>
 					</div>
 				</c:forEach>
-				<a
-					href='${pageContext.request.contextPath }/jawaban?id=${question.question_id}'>Jawab</a>
+				<form:form  >
+				
+				</form:form>
 			</div>
 
 		</section>

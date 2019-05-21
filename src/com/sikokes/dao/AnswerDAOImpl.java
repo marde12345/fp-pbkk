@@ -25,4 +25,10 @@ public class AnswerDAOImpl implements AnswerDAO{
 		return (List<Answer>) sessionFactory.getCurrentSession().createQuery(sql).list();
 	}
 
+	@Override
+	public void addAnswerById(Answer answer) {
+		sessionFactory.getCurrentSession().save(answer);
+		
+	}
+
 }

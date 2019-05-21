@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sikokes.model.Question;
+import com.sikokes.model.User;
 
 @Repository
 public class QuestionDAOImpl implements QuestionDAO {
@@ -24,6 +25,11 @@ public class QuestionDAOImpl implements QuestionDAO {
 	@Override
 	public Question getQuestionById(int id) {
 		return sessionFactory.getCurrentSession().get(Question.class, id);
+	}
+
+	@Override
+	public void addQuestion(User user, Question question) {
+		sessionFactory.getCurrentSession().save(question);	
 	}
 
 }

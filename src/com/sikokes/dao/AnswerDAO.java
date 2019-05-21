@@ -6,4 +6,5 @@ import com.sikokes.model.Answer;
 
 public interface AnswerDAO {
 	public List<Answer> getAnswerByid(int id);
+	public void addAnswerById(Answer answer);
 }

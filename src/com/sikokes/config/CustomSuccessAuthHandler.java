@@ -65,9 +65,9 @@ public class CustomSuccessAuthHandler implements AuthenticationSuccessHandler {
         }
  
         if (isDoktor) {
-            return "/doktor";
+            return "/";
         } else if (isPasien) {
-            return "/pasien";
+            return "/";
         } else {
             throw new IllegalStateException();
         }
