@@ -103,22 +103,21 @@
 			<div class="w-100">
 				<h2 class="mb-5">Timeline</h2>
 
+				<c:forEach items="${questions }" var="question">			
+
 				<div
 					class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
 					<div class="resume-content">
-						<h3 class="mb-0">Senior Web Developer</h3>
-						<div class="subheading mb-3">Intelitec Solutions</div>
-						<p>Bring to the table win-win survival strategies to ensure
-							proactive domination. At the end of the day, going forward, a new
-							normal that has evolved from generation X is on the runway
-							heading towards a streamlined cloud solution. User generated
-							content in real-time will have multiple touchpoints for
-							offshoring.</p>
+						<h3 class="mb-0"><c:out value="${question.judul }"></c:out></h3>
+						<div class="subheading mb-3"><c:out value="${question.from_user }"></c:out> </div>
+						<p><c:out value="${question.question }"></c:out> </p>
+						<a href='${pageContext.request.contextPath }/jawaban?id=${question.question_id}' >Jawab</a>
 					</div>
 					<div class="resume-date text-md-right">
 						<span class="text-primary">March 2013 - Present</span>
 					</div>
 				</div>
+				</c:forEach>
 
 			</div>
 
