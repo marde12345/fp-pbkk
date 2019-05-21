@@ -21,4 +21,9 @@ public class QuestionDAOImpl implements QuestionDAO {
 		return sessionFactory.getCurrentSession().createQuery("FROM Question", Question.class).getResultList();
 	}
 
+	@Override
+	public Question getQuestionById(int id) {
+		return sessionFactory.getCurrentSession().get(Question.class, id);
+	}
+
 }

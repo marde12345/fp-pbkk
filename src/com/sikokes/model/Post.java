@@ -2,6 +2,8 @@ package com.sikokes.model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+
 public class Post {
 	private List<Answer> answer;
 	private Question question;

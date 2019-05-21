@@ -50,17 +50,9 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#about">About</a></li>
+					href="${pageContext.request.contextPath }/profile">About</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#experience">Experience</a></li>
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#education">Education</a></li>
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#skills">Skills</a></li>
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#interests">Interests</a></li>
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#awards">Awards</a></li>
+					href="${pageContext.request.contextPath }/">Timeline</a></li>
 				<li></li>
 				<li></li>
 				<li></li>
@@ -111,10 +103,10 @@
 						<h3 class="mb-0"><c:out value="${question.judul }"></c:out></h3>
 						<div class="subheading mb-3"><c:out value="${question.from_user }"></c:out> </div>
 						<p><c:out value="${question.question }"></c:out> </p>
-						<a href='${pageContext.request.contextPath }/jawaban?id=${question.question_id}' >Jawab</a>
+						<a href='${pageContext.request.contextPath }/jawaban?id=${question.question_id}' >Comment</a>
 					</div>
 					<div class="resume-date text-md-right">
-						<span class="text-primary">March 2013 - Present</span>
+						<span class="text-primary"></span>
 					</div>
 				</div>
 				</c:forEach>

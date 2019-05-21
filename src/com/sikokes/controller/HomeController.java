@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sikokes.model.Post;
 import com.sikokes.model.Question;
 import com.sikokes.model.Role;
 import com.sikokes.model.User;
@@ -58,11 +59,16 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="jawaban",method=RequestMethod.GET)
-	public ModelAndView showJawaban(@RequestParam("id") int id) {
+	public ModelAndView showJawaban(@RequestParam("id") int id,Model model, Principal principal) {
 		ModelAndView mav = new ModelAndView("jawaban");
 		
-		mav.addObject("jawaban",answerService.getAnswerByid(id));
+//		Post post = new Post(answerService.getAnswerByid(id),questionService.getQuestionById(id));
+//		mav.addObject("post",post);
 		
+//		mav.addObject("question", questionService.getQuestionById(id));
+		model.addAttribute(userService.getUserByUsername(principal.getName()));
+		mav.addObject("jawaban",answerService.getAnswerByid(id));
+//		
 		return mav;
 	}
 }

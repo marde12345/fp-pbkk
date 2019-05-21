@@ -21,4 +21,9 @@ public class QuestionServiceImpl implements QuestionService {
 		return questionDAO.getQuestions();
 	}
 
+	@Override
+	public Question getQuestionById(int id) {
+		return questionDAO.getQuestionById(id);
+	}
+
 }
