@@ -2,7 +2,7 @@
 Final Project Pemrograman Berbasis Kerangka Kerja Spring MVC
 ## Anggota Kelompok
 - Marde Fasma 05111640000046
-- Nada Nibrassalbila 05111640000060 
+- Nada Nibrassalsabila 05111640000060 
 - Rasyid Fajar 05111640000119
 ## Sistem Informasi Konsultasi Kesehatan
 ### Deskripsi
